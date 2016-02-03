@@ -1,6 +1,6 @@
 # spacemacs-cmake-ide
 
-Adds [cmake-ide][https://github.com/atilaneves/cmake-ide] as a rudimentary spacemacs layer.
+Adds [cmake-ide](https://github.com/atilaneves/cmake-ide) as a rudimentary spacemacs layer.
 
 ## To install
 
