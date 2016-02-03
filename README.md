@@ -18,10 +18,6 @@ Adds [cmake-ide][https://github.com/atilaneves/cmake-ide] as a rudimentary space
    
     ```Emacs Lisp
     (defun dotspacemacs/user-init ()
-      "Initialization function for user code.
-      It is called immediately after `dotspacemacs/init'.  You are free to put almost
-      any user code here.  The exception is org related code, which should be placed
-      in `dotspacemacs/user-config'."
       (push "/usr/local/share/emacs/site-lisp/rtags" load-path))
     ```
    
