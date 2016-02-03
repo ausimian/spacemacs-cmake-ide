@@ -16,7 +16,7 @@ Adds [cmake-ide][https://github.com/atilaneves/cmake-ide] as a rudimentary space
    RTags will install this file to site-lisp by default, but spacemacs normally removes these 
    directories from the load-path).
    
-    ```Emacs Lisp
+    ```elisp
     (defun dotspacemacs/user-init ()
       (push "/usr/local/share/emacs/site-lisp/rtags" load-path))
     ```
