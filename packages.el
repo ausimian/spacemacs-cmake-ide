@@ -29,7 +29,7 @@
 
 ;;; Code:
 
-(defconst cmake-ide-packages
+(defconst spacemacs-cmake-ide-packages
   '(cmake-ide company-irony irony)
   "The list of Lisp packages required by the cmake-ide layer.
 
@@ -58,25 +58,26 @@ Each entry is either:
       - A list beginning with the symbol `recipe' is a melpa
         recipe.  See: https://github.com/milkypostman/melpa#recipe-format")
 
-(defun cmake-ide/init-cmake-ide ()
+(defun spacemacs-cmake-ide/init-cmake-ide ()
   (use-package cmake-ide))
 
-(defun cmake-ide/init-irony ()
+(defun spacemacs-cmake-ide/init-irony ()
   (use-package irony))
 
-(defun cmake-ide/init-company-irony ()
+(defun spacemacs-cmake-ide/init-company-irony ()
   (use-package company-irony))
 
-(defun cmake-ide/post-init-cmake-ide ()
+(defun spacemacs-cmake-ide/post-init-cmake-ide ()
   (require 'rtags)
   (cmake-ide-setup))
 
-(defun cmake-ide/post-init-irony ()
+(defun spacemacs-cmake-ide/post-init-irony ()
   (add-hook 'c++-mode-hook 'irony-mode)
   (add-hook 'c++-mode-hook 'company-mode)
   (add-hook 'c-mode-hook 'irony-mode)
   (add-hook 'c-mode-hook 'company-mode)
-)
+  (add-hook 'irony-mode-hook 'my-irony-mode-hook)
+  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
 
 ;; replace the `completion-at-point' and `complete-symbol' bindings in
 ;; irony-mode's buffers by irony-mode's function
@@ -85,7 +86,5 @@ Each entry is either:
     'irony-completion-at-point-async)
   (define-key irony-mode-map [remap complete-symbol]
     'irony-completion-at-point-async))
-(add-hook 'irony-mode-hook 'my-irony-mode-hook)
-(add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
 
 ;;; packages.el ends here
